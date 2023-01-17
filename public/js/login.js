@@ -1,25 +1,24 @@
-async function loginFormHandler(event) {
-    event.preventDefaults();
-
-    const email = document.querySelector('#email-login').value.trim();
-    const password = document.querySelector('#password-login').value.trim();
-
-    if (email && password) {
-        const response = await fetch('/api/users/login', {
-            method: 'post',
-            body: JSON.stringify({
-                email,
-                password
-            }),
-            headers: { 'Content-Type': 'application/json' }
-        });
-
-        if (response.ok) {
-            document.location.replace('/dashboard');
-        } else {
-            alert(response.statusText);
-        }
+const login = async function(event) {
+    event.preventDefault();
+  
+    const usernameEl = document.querySelector('#username-input');
+    const passwordEl = document.querySelector('#password-input');
+  
+    const response = await fetch('/api/user/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        username: usernameEl.value,
+        password: passwordEl.value,
+      }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+  
+    if (response.ok) {
+      document.location.replace('/dashboard');
+    } else {
+      alert('Failed to login');
     }
-}
-
-document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
+  };
+  
+  document.querySelector('#login-form').addEventListener('submit', login);
+  
