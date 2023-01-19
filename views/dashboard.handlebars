@@ -1,20 +1,19 @@
-<section class="new-post-section">
-    <button type="submit" class="btn" id="create-new-post">+ Create new post</button>
-</section>
-
-
+    <div class="mb-5 pt-3">
+        <a href="../views/create-post.handlebars"><button id="create-post" class="button is-primary is-pulled-right">Create Post</button></a>
+        
+        <h2 class="title pb-4">Dashboard: Your Posts</h2><hr>
 {{#if posts.length}}
-<section>
-    <h2>Your Dashboard</h2>
-    <ul class="post-list">
-        {{#each posts as |post|}}
-        <li>
-            {{> post-info post}}
-            <a href="/views/edit-post.handlebars" class="edit-link">edit post</a>
-        </li>
-        {{/each}}
-    </ul>
-</section>
+    </div>
+
+    {{#each posts as |post|}}
+        {{> post-info post}}
+        
+            <a href="../views/edit-post.handlebars"><button class="button mb-5 ml-5 is-warning">Edit Post</button></a>
+        </div>
+    {{/each}}
+
+{{else}}
+<h6 class="pb-4 has-text-centered is-italic">You do not currently have any posts...</h6>
+
 {{/if}}
 
-<script src="/public/js/createPost.js"></script>
