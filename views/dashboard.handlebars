@@ -1,5 +1,5 @@
     <div class="mb-5 pt-3">
-        <a href="../views/create-post.handlebars"><button id="create-post" class="button is-primary is-pulled-right">Create Post</button></a>
+        <a href="/dashboard/create/"><button id="create-post" class="button is-primary is-pulled-right">Create Post</button></a>
         
         <h2 class="title pb-4">Dashboard: Your Posts</h2><hr>
 {{#if posts.length}}
@@ -8,7 +8,7 @@
     {{#each posts as |post|}}
         {{> post-info post}}
         
-            <a href="../views/edit-post.handlebars"><button class="button mb-5 ml-5 is-warning">Edit Post</button></a>
+            <a href="/dashboard/edit/"><button class="button mb-5 ml-5 is-warning">Edit Post</button></a>
         </div>
     {{/each}}
 
