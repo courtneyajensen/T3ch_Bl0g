@@ -30,6 +30,7 @@
     "inquirer": "^9.1.4",
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.4",
-    "sequelize": "^5.22.5"
+    "sequelize": "^5.22.5",
+    "tedious": "^15.1.2"
   }
 }
